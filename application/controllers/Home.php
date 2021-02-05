@@ -8,14 +8,13 @@ class Home extends CI_Controller {
     }
     public function index()
 	{
-		$mod=$this->load->model('customermodel');
-		var_dump($mod);
+		$this->load->model('customermodel');
 		$data=$this->customermodel->getrecords();
-		var_dump($data);
-		echo '<pre>';
-			print_r($data);
-		echo '</pre>';
 		$this->load->view('show', ['data' => $data]);
+	}
+	public function edit($id)
+	{
+		echo $id;
 	}
 }
 ?>
