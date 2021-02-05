@@ -12,6 +12,27 @@ class Home extends CI_Controller {
 		$data=$this->customermodel->getrecords();
 		$this->load->view('show', ['data' => $data]);
 	}
+	public function create()
+	{
+		$this->load->view('create');
+	}
+	public function save()
+	{
+		$this->form_validation->set_rules('name','Customer Name','required');
+		$this->form_validation->set_rules('phone','Phone','required');
+		$this->form_validation->set_rules('address','Address','required');
+		$this->form_validation->set_rules('city','City','required');
+		$this->form_validation->set_rules('country','Country','required');
+
+		if($this->form_validation->run())
+		{
+			echo "Sucess";
+		}
+		else
+		{
+			$this->load->view('create');
+		}
+	}
 	public function edit($id)
 	{
 		echo $id;
