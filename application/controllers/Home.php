@@ -23,10 +23,20 @@ class Home extends CI_Controller {
 		$this->form_validation->set_rules('address','Address','required');
 		$this->form_validation->set_rules('city','City','required');
 		$this->form_validation->set_rules('country','Country','required');
+		$this->form_validation->set_error_delimiters('<div class="has-text-danger">','</div>');
 
 		if($this->form_validation->run())
-		{
-			echo "Sucess";
+		{	$data = $this->input->post();
+			$this->load->model('customermodel');
+			if($this->customermodel->saverecords($data))
+			{
+				$this->session->set_flashdata('response','Data SAVE Succesfully.');
+			}
+			else
+			{
+				$this->session->set_flashdata('response','Data failed to save.');
+			}
+			return redirect('home');
 		}
 		else
 		{

@@ -6,12 +6,18 @@ include('header.php');
         
         <div class="columns">
   			<div class="column is-8 is-offset-1">
-            
+
                 <div class="buttons mr-6">
                     <?php echo anchor("home/create",'Create',['class'=>'button is-info']);?>
                     
                 </div>
-
+                
+                <?php if($error = $this->session->flashdata('response')):?>
+			<div class="notification is-success">
+				<button class="delete"></button>
+				<?php echo $error;?>
+			</div>
+		<?php endif;?>
 					
                 <table class="table is-bordered is-striped is-hoverable">
                     <thead>

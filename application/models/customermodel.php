@@ -9,4 +9,9 @@ class customermodel extends CI_Model
         return $query->result();
     }
 
+    public function saverecords($data)
+    {
+        return $this->db->insert('customers', $data);      
+    }
+
 }
