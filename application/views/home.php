@@ -4,10 +4,6 @@ include('header.php');
 ?>
 
 		<div class="columns">
-		
-		
-		
-		
   			<div class="column is-8 is-offset-1">
 			  <h1 class="title is-3 has-text-black ">Create Customer </h1><hr>
 				<div class="field is-horizontal">

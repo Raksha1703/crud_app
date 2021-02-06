@@ -34,7 +34,7 @@ class Home extends CI_Controller {
 			}
 			else
 			{
-				$this->session->set_flashdata('response','Data failed to save.');
+				$this->session->set_flashdata('response','Data failed to SAVE!!.');
 			}
 			return redirect('home');
 		}
@@ -44,8 +44,24 @@ class Home extends CI_Controller {
 		}
 	}
 	public function edit($id)
+	{	
+		$this->load->model('customermodel');
+		$record = $this->customermodel->getallrecords($id);
+		var_dump($record);
+		$this->load->view('update',['record'=>$record]);
+	}
+	 public function delete($id)
 	{
-		echo $id;
+		$this->load->model('customermodel');
+		if($this->customermodel->deleterecord($id))
+		{
+			$this->session->set_flashdata('response','Data DELETED Succesfully.');
+		}
+		else
+		{
+			$this->session->set_flashdata('response','Failed to DELETE Data!!.');
+		}
+		return redirect('home');
 	}
 }
 ?>

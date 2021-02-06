@@ -7,18 +7,18 @@ include('header.php');
         <div class="columns">
   			<div class="column is-8 is-offset-1">
 
+                <?php if($error = $this->session->flashdata('response')):?>
+                    <div class="notification is-success">
+                            <button class="delete"></button>
+                            <?php echo $error;?>
+                    </div>
+		        <?php endif;?>
+
                 <div class="buttons mr-6">
                     <?php echo anchor("home/create",'Create',['class'=>'button is-info']);?>
                     
                 </div>
-                
-                <?php if($error = $this->session->flashdata('response')):?>
-			<div class="notification is-success">
-				<button class="delete"></button>
-				<?php echo $error;?>
-			</div>
-		<?php endif;?>
-					
+                			
                 <table class="table is-bordered is-striped is-hoverable">
                     <thead>
                            <th>Cutomer Name</th> 
@@ -37,8 +37,8 @@ include('header.php');
                                         <td><?php echo $record->address;?></td>
                                         <td><?php echo $record->city;?></td>
                                         <td><?php echo $record->country;?></td>
-                                        <td><?php echo anchor("home/edit/".$record->id,'Update',['class'=>'button is-success']);?>
-                                            <?php echo anchor("home/delete",'Delete',['class'=>'button is-danger']);?></td>
+                                        <td><?php echo anchor("home/edit/{$record->id}",'Update',['class'=>'button is-success']);?>
+                                            <?php echo anchor("home/delete/{$record->id}",'Delete',['class'=>'button is-danger']);?></td>
                                     </tr>
                                 <?php }?>
                             <?php else: ?>

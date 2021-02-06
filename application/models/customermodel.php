@@ -14,4 +14,17 @@ class customermodel extends CI_Model
         return $this->db->insert('customers', $data);      
     }
 
+    public function getallrecords($id)
+    {
+        $query = $this->db->get_where('customers', array('id'=>$id));
+        if($query->num_rows()>0)
+        {
+            return $query->row();
+        }
+    }
+
+    public function deleterecord($id)
+    {
+        return $this->db->delete('customers', array('id'=>$id));      
+    }
 }
