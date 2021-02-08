@@ -7,7 +7,7 @@ class Home extends CI_Controller {
 		$this->load->view('home');
     }
     public function index()
-	{	
+	{
 		$search = ($this->input->post('search'))?$this->input->post('search'):null;
 		if($search)
 		{
@@ -21,6 +21,7 @@ class Home extends CI_Controller {
 	{
 		$this->load->view('create');
 	}
+	
 	public function save()
 	{
 		$this->form_validation->set_rules('name','Customer Name','required');

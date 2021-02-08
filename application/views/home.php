@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 include('header.php');
+include('nav.php');
+
 ?>
 
 		<div class="columns">

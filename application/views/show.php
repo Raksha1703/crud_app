@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 include('header.php');
+include('nav.php');
+
 ?>
 
        
@@ -16,8 +18,7 @@ include('header.php');
                                     <input class="button is-info" type="submit" value="Search">
                                     <?php echo anchor("home",'Reset',['class'=>'button']);?>
                                 </div>
-                        </div>
-                       
+                        </div>                    
                     </form>
                 </div>
                 <?php if($error = $this->session->flashdata('response')):?>

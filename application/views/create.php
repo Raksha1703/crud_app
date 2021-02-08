@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-include 'header.php';
+include ('header.php');
+include('nav.php');
+
 ?>
 
 <?php echo form_open('home/save'); ?>
