@@ -7,9 +7,14 @@ class Home extends CI_Controller {
 		$this->load->view('home');
     }
     public function index()
-	{
+	{	
+		$search = ($this->input->post('search'))?$this->input->post('search'):null;
+		if($search)
+		{
+			$this->session->sess_destroy();
+		}
 		$this->load->model('customermodel');
-		$data=$this->customermodel->getrecords();
+		$data = $this->customermodel->getrecords($search);
 		$this->load->view('show', ['data' => $data]);
 	}
 	public function create()

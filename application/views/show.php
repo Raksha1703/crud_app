@@ -3,10 +3,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 include('header.php');
 ?>
 
-        
+       
         <div class="columns">
   			<div class="column is-8 is-offset-1">
-
+                <div class="field has-addons">
+                   <form method="POST" action="/">
+                        <div class="columns">
+                                <div class="control">
+                                    <input class="input" name="search" type="text" placeholder="Search Here">
+                                </div>
+                                <div class="control">
+                                    <input class="button is-info" type="submit" value="Search">
+                                    <?php echo anchor("home",'Reset',['class'=>'button']);?>
+                                </div>
+                        </div>
+                       
+                    </form>
+                </div>
                 <?php if($error = $this->session->flashdata('response')):?>
                     <div class="notification is-success">
                             <button class="delete"></button>
